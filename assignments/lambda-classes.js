@@ -28,12 +28,12 @@ class Instructor extends Person {
 }
 
 //student class 
-class Student {
-    cosntructor(attr) {
+class Student extends Instructor {
+    constructor(attr) {
         super(attr);
-    this.previousBackground = attr.previousBackground;
-    this.className = attr.className;
-    this.favSubjects = attr.favSubjects;    
+        this.previousBackground = attr.previousBackground;
+        this.className = attr.className;
+        this.favSubjects = attr.favSubjects;    
     }
     listSubjects() {
         this.favSubjects.forEach(function(subject){
@@ -63,4 +63,80 @@ class ProjectManager extends Instructor {
     }
 }
 
-//
+//Instructor Objects
+const Britt = new Instructor ({
+    name: 'Britt Hemming',
+    age: 25,
+    location: 'New York, NY',
+    specialty: 'JavaScript',
+    favLanguage: 'React',
+    catchPhrase: 'Everyone break out into small groups',
+});
+
+const Josh = new Instructor ({
+    name: 'Josh Knell',
+    age: 30,
+    location: 'Salt Lake City, Utah',
+    specialty: 'JavaScript',
+    favLanguage: 'Street',
+    catchPhrase: 'Easy, right?!!', 
+});
+
+//Student Objects
+const Sara = new Student ({
+    name: 'Sara Alkhamri',
+    age: 34,
+    location: 'Joshua Tree, CA',
+    previousBackground: 'Client Support',
+    className: 'WEB22',
+    favSubjects: ['Arts', 'Literature'],  
+});
+
+const Nora = new Student ({
+    name: 'Nora Alkhamri',
+    age: 29,
+    location: 'London, UK',
+    previousBackground: 'Visual Artist',
+    className: 'WEB22',
+    favSubjects: ['Science', 'Biology', 'Math'],  
+});
+
+const Abdul = new ProjectManager ({
+    name: 'Abdul Ahmed',
+    age: 30,
+    location: 'Washington, DC',
+    specialty: 'React',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'You can do it!',
+    gradClassName: 'Webpt6',
+    favInstructor: 'Josh',
+});
+
+const Emily = new ProjectManager ({
+    name: 'Emily McClanahan',
+    age: 26,
+    location: 'Houston, TX',
+    specialty: 'JavaScript',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'I believe in you!',
+    gradClassName: 'Webpt6',
+    favInstructor: 'Ryan',
+})
+
+//Instructor testing
+console.log(Britt.demo('React'));
+console.log(Josh.catchPhrase);
+
+//Student testing
+console.log(Sara.sprintChallenge('JavaScript'));
+console.log(Nora.name);
+console.log(Nora.speak());
+console.log(Sara.speak());
+
+//PM testing
+console.log(Emily.standUp('Webpt6'));
+console.log(Emily.debugCode(Nora, 'JavaScript'));
+console.log(Abdul.favInstructor);
+console.log(Abdul.standUp('Webpt6'));
+console.log(Abdul.speak());
+console.log(Abdul.catchPhrase)
